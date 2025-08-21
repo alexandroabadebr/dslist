@@ -12,130 +12,134 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_game")
 public class Game {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String title;
-	
-	@Column(name = "game_year")
-	private Integer year;
-	private String genre;
-	private String platforms;
-	private Double score;
-	private String imgUrl;
-	
-	@Column(columnDefinition = "TEXT")
-	private String shortDescription;
-	
-	@Column(columnDefinition = "TEXT")
-	private String longDescription;
-	
-	public Game() {
-	}
 
-	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
-			String shortDescript, String longDescription) {
-		this.id = id;
-		this.title = title;
-		this.year = year;
-		this.genre = genre;
-		this.platforms = platforms;
-		this.score = score;
-		this.imgUrl = imgUrl;
-		this.shortDescript = shortDescript;
-		this.longDescription = longDescription;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String title;
+    
+    @Column(name = "game_year")
+    private Integer year;
+    
+    private String genre;
+    
+    private String platforms;
+    
+    private Double score;
+    
+    private String imgUrl;
+    
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+    
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
 
-	public Long getId() {
-		return id;
-	}
+    
+    public Game() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    
+    public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+                String shortDescription, String longDescription) {
+        this.id = id;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
+        this.imgUrl = imgUrl;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getYear() {
-		return year;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setYear(Integer year) {
-		this.year = year;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getGenre() {
-		return genre;
-	}
+    public Integer getYear() {
+        return year;
+    }
 
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
-	public String getPlatforms() {
-		return platforms;
-	}
-	
-	public Double getScore() {
-		return score;
-	}
+    public String getGenre() {
+        return genre;
+    }
 
-	public void setScore(Double score) {
-		this.score = score;
-	}
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
-	public void setPltforms(String platforms) {
-		this.platforms = platforms;
-	}
+    public String getPlatforms() {
+        return platforms;
+    }
 
-	public String getImgUrl() {
-		return imgUrl;
-	}
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
+    }
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
+    public Double getScore() {
+        return score;
+    }
 
-	public String getShortDescript() {
-		return shortDescript;
-	}
+    public void setScore(Double score) {
+        this.score = score;
+    }
 
-	public void setShortDescript(String shortDescript) {
-		this.shortDescript = shortDescript;
-	}
+    public String getImgUrl() {
+        return imgUrl;
+    }
 
-	public String getLongDescription() {
-		return longDescription;
-	}
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
-	public void setLongDescription(String longDescription) {
-		this.longDescription = longDescription;
-	}
+    public String getShortDescription() {
+        return shortDescription;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Game other = (Game) obj;
-		return Objects.equals(id, other.id);
-	}
-	
-	
-	
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    // hashCode e equals baseados no ID
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Game other = (Game) obj;
+        return Objects.equals(id, other.id);
+    }
 }
